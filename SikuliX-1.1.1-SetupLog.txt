@@ -1,0 +1,140 @@
+[debug (10/25/17 2:46:07 PM)] Debug: setLogFile: /Users/osolo/Desktop/sikulix/SikuliX-1.1.1-SetupLog.txt
+[debug (10/25/17 2:46:07 PM)] RunSetup: ... starting with no args given
+[debug (10/25/17 2:46:07 PM)] RunSetup: Setup: 1.1.1 2017-03-29_10:41 in folder:
+/Users/osolo/Desktop/sikulix
+[debug (10/25/17 2:46:08 PM)] RunSetup: RunningSystem: Mac OSX 10.12.6
+[debug (10/25/17 2:46:08 PM)] RunSetup: parent of jar/classes: /Users/osolo/Desktop/sikulix
+[debug (10/25/17 2:46:08 PM)] RunSetup: RunningJava: Java 8 (x86_64) 1.8.0_131-b11
+[debug (10/25/17 2:46:08 PM)] init user preferences
+[debug (10/25/17 2:46:12 PM)] RunSetup: 
+popAsk: --------------------
+The following file(s) will be downloaded to
+/Users/osolo/Desktop/sikulix
+--- Native support libraries for Mac OSX (sikulixlibs...)
+--- Package 1 ---
+sikulixsetupIDE-1.1.1-20170329.232057-141-forsetup.jar (IDE/Scripting)
+sikulixsetupAPI-1.1.1-20170329.231900-143-forsetup.jar (Java API)
+ - with Jython
+ - creating Mac application
+Only click NO, if you want to terminate setup now!
+Click YES even if you want to use local copies in Downloads!
+--------------------
+[debug (10/25/17 2:46:13 PM)] FileManager: download to string from:
+https://oss.sonatype.org/content/groups/public/com/sikulix/sikulixlibsmac/1.1.1-SNAPSHOT/maven-metadata.xml,
+[debug (10/25/17 2:46:13 PM)] RunSetup: getMavenJar: sikulixlibsmac-1.1.1-20170329.230802-154.jar
+[debug (10/25/17 2:46:13 PM)] FileManager: Downloading sikulixlibsmac-1.1.1-20170329.230802-154.jar having 4852 KB
+[debug (10/25/17 2:46:15 PM)] FileManager: downloaded 4852 KB to:
+/Users/osolo/Library/Application Support/Sikulix/SikulixDownloads_201703291041/sikulixlibsmac-1.1.1-20170329.230802-154.jar
+[debug (10/25/17 2:46:15 PM)] FileManager: download time: 1
+[debug (10/25/17 2:46:18 PM)] RunSetup: Copied from Downloads: sikulixlibsmac
+[debug (10/25/17 2:46:18 PM)] FileManager: download to string from:
+https://oss.sonatype.org/content/groups/public/com/sikulix/sikulixsetupAPI/1.1.1-SNAPSHOT/maven-metadata.xml,
+[debug (10/25/17 2:46:18 PM)] RunSetup: getMavenJar: sikulixsetupAPI-1.1.1-20170329.231900-143-forsetup.jar
+[debug (10/25/17 2:46:18 PM)] FileManager: Downloading sikulixsetupAPI-1.1.1-20170329.231900-143-forsetup.jar having 9352 KB
+[debug (10/25/17 2:46:21 PM)] FileManager: downloaded 9352 KB to:
+/Users/osolo/Library/Application Support/Sikulix/SikulixDownloads_201703291041/sikulixsetupAPI-1.1.1-20170329.231900-143-forsetup.jar
+[debug (10/25/17 2:46:21 PM)] FileManager: download time: 2
+[debug (10/25/17 2:46:24 PM)] RunSetup: Copied from Downloads: sikulixapi
+[debug (10/25/17 2:46:24 PM)] FileManager: download to string from:
+https://oss.sonatype.org/content/groups/public/com/sikulix/sikulixsetupIDE/1.1.1-SNAPSHOT/maven-metadata.xml,
+[debug (10/25/17 2:46:24 PM)] RunSetup: getMavenJar: sikulixsetupIDE-1.1.1-20170329.232057-141-forsetup.jar
+[debug (10/25/17 2:46:24 PM)] FileManager: Downloading sikulixsetupIDE-1.1.1-20170329.232057-141-forsetup.jar having 10709 KB
+[debug (10/25/17 2:46:27 PM)] FileManager: downloaded 10709 KB to:
+/Users/osolo/Library/Application Support/Sikulix/SikulixDownloads_201703291041/sikulixsetupIDE-1.1.1-20170329.232057-141-forsetup.jar
+[debug (10/25/17 2:46:27 PM)] FileManager: download time: 3
+[debug (10/25/17 2:46:30 PM)] RunSetup: Copied from Downloads: sikulix
+[debug (10/25/17 2:46:30 PM)] RunSetup: 
+popAsk: --------------------
+If you click YES, you will get Jython version 2.7.0 (recommended)
+... but in rare cases there might be issues with UTF-8/Unicode
+that usually appear on startup when UTF-8 characters
+are present somewhere in the system environment
+If you encounter such problems with Jython 2.7.0
+run setup again and
+click NO to get Jython 2.5.4rc1
+--------------------
+[debug (10/25/17 2:46:35 PM)] FileManager: Downloading jython-standalone-2.7.0.jar having 36154 KB
+[debug (10/25/17 2:46:47 PM)] FileManager: downloaded 36154 KB to:
+/Users/osolo/Library/Application Support/Sikulix/SikulixDownloads/jython-standalone-2.7.0.jar
+[debug (10/25/17 2:46:47 PM)] FileManager: download time: 12
+[debug (10/25/17 2:46:50 PM)] RunSetup: Copied from Downloads: Jython
+[debug (10/25/17 2:46:50 PM)] RunSetup: Download ended
+[debug (10/25/17 2:46:50 PM)] RunSetup: Downloads for selected options:
+sikulixlibsmac-1.1.1-20170329.230802-154.jar sikulixsetupIDE-1.1.1-20170329.232057-141-forsetup.jar sikulixsetupAPI-1.1.1-20170329.231900-143-forsetup.jar jython-standalone-2.7.0.jar 
+[debug (10/25/17 2:46:50 PM)] RunSetup: adding needed stuff to sikulix.jar
+[debug (10/25/17 2:46:50 PM)] FileManager: buildJar: sikulixtemp.jar
+[debug (10/25/17 2:46:50 PM)] FileManager: buildJar: adding: sikulix.jar
+[debug (10/25/17 2:46:52 PM)] FileManager: buildJar: adding: sikulixapi.jar
+[debug (10/25/17 2:46:53 PM)] FileManager: buildJar: adding: sikulixjython.jar
+[debug (10/25/17 2:47:00 PM)] FileManager: buildJar: adding: sikulixlibsmac.jar
+[debug (10/25/17 2:47:02 PM)] FileManager: buildJar: completed
+[debug (10/25/17 2:47:02 PM)] RunSetup: renaming sikulixtemp.jar to target jar: sikulix.jar
+[debug (10/25/17 2:47:02 PM)] RunSetup: making the Mac application Sikulix.app
+[debug (10/25/17 2:47:02 PM)] RunTimeSETUP: resourceList: enter
+[debug (10/25/17 2:47:02 PM)] RunTimeSETUP: resourceLocation: (class org.sikuli.setup.RunSetup) /macapp
+[debug (10/25/17 2:47:02 PM)] RunTimeSETUP: resourceList: having jar: jar:file:/Users/osolo/Desktop/sikulix/sikulixsetup-1.1.1.jar!/macapp
+[debug (10/25/17 2:47:02 PM)] RunTimeSETUP: files exported: 6 from: macapp to:
+ /Users/osolo/Desktop/sikulix/SikuliX.app
+[debug (10/25/17 2:47:02 PM)] RunSetup: processing commandfiles
+[debug (10/25/17 2:47:02 PM)] RunTimeSETUP: addToClasspath:
+file:/Users/osolo/Desktop/sikulix/SikuliX.app/Contents/Java/sikulix.jar
+[debug (10/25/17 2:47:02 PM)] RunTimeSETUP: exists libs folder at: /Users/osolo/Library/Application Support/Sikulix/SikulixLibs_201703291041
+[debug (10/25/17 2:47:02 PM)] RunSetup: Jython: Trying to run functional test: running script statements via SikuliScript
+[debug (10/25/17 2:47:07 PM)] ScriptingSupport: initScriptingSupport: enter
+[debug (10/25/17 2:47:09 PM)] JythonSupport: init: starting
+[debug (10/25/17 2:47:09 PM)] JythonSupport: init: success
+[debug (10/25/17 2:47:09 PM)] JythonSupport: ***** Jython sys.path
+ 0: /Users/osolo/Desktop/sikulix/SikuliX.app/Contents/Java/Lib
+ 1: /Users/osolo/Desktop/sikulix/SikuliX.app/Contents/Java/sikulix.jar/Lib
+ 2: __classpath__
+ 3: __pyclasspath__/
+[debug (10/25/17 2:47:09 PM)] JythonSupport: ***** Jython sys.path end
+[debug (10/25/17 2:47:09 PM)] Jython: sikuli: Sikuli: starting init
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: exists libs folder at: /Users/osolo/Library/Application Support/Sikulix/SikulixLibs_201703291041
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: libs folder empty or has wrong content
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: now exporting libs
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: libs to export are at:
+jar:file:/Users/osolo/Desktop/sikulix/sikulixsetup-1.1.1.jar!/sikulixlibs/mac/libs64
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: resourceList: enter
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: resourceLocation: (class org.sikuli.setup.RunSetup) /sikulixlibs/mac/libs64
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: resourceList: having jar: jar:file:/Users/osolo/Desktop/sikulix/sikulixsetup-1.1.1.jar!/sikulixlibs/mac/libs64
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: files exported: 11 from: /sikulixlibs/mac/libs64 to:
+ /Users/osolo/Library/Application Support/Sikulix/SikulixLibs_201703291041
+[debug (10/25/17 2:47:10 PM)] RunTimeSETUP: loadLib: libVisionProxy.dylib
+[debug (10/25/17 2:47:10 PM)] Mouse: init start
+[debug (10/25/17 2:47:11 PM)] Mouse: init end
+[debug (10/25/17 2:47:11 PM)] RunTimeSETUP: loadLib: libMacUtil.dylib
+[debug (10/25/17 2:47:11 PM)] Jython: requested to use as default region: S(0)[0,0 1680x1050]
+[debug (10/25/17 2:47:11 PM)] Jython: sikuli: Sikuli: ending init
+[debug (10/25/17 2:47:11 PM)] JythonScriptRunner: running Jython 2.7.0 
+[debug (10/25/17 2:47:11 PM)] ScriptingSupport: initScriptingSupport: added: jython
+[debug (10/25/17 2:47:11 PM)] ScriptingSupport: initScriptingSupport: exit with defaultrunner: jython (py)
+[debug (10/25/17 2:47:11 PM)] Jython: requested to use as default region: S(0)[0,0 1680x1050]
+[debug (10/25/17 2:47:11 PM)] JythonScriptRunner: runPython: running statements
+[debug (10/25/17 2:47:11 PM)] Image: BufferedImage: (100, 100)
+[debug (10/25/17 2:47:11 PM)] Finder: Image: __BufferedImage__: (100x100)
+[debug (10/25/17 2:47:11 PM)] Sikulix: testSetup: Finder setup with image worked
+[debug (10/25/17 2:47:11 PM)] FileManager: tempfile create:
+/var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png
+[debug (10/25/17 2:47:11 PM)] Image: loaded: /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png (file:/private/var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png)
+[debug (10/25/17 2:47:11 PM)] Image: cached: /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png (29 KB) (# 1 KB 29 -- 0 % of 64 MB)
+[debug (10/25/17 2:47:11 PM)] Sikulix: testSetup: Finder setup with image file worked
+[debug (10/25/17 2:47:11 PM)] Image: reused: /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png (file:/private/var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png)
+[debug (10/25/17 2:47:11 PM)] Region: wait: waiting 3.0 secs for /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png to appear in S(0)[0,0 1680x1050]
+[debug (10/25/17 2:47:12 PM)] Region: wait: /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png appeared (M[0,0 100x100]@S(S(0)[0,0 1680x1050]) S:1.00 C:50,50 [330 msec])
+[debug (10/25/17 2:47:12 PM)] Sikulix: testSetup: Screen.find(imagefile) worked
+[debug (10/25/17 2:47:12 PM)] Image: reused: /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png (file:/private/var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png)
+[debug (10/25/17 2:47:12 PM)] Region: wait: waiting 3.0 secs for /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png to appear in S(0)[0,0 1680x1050]
+[debug (10/25/17 2:47:12 PM)] Region: wait: /var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563/sikuli-4804905157582328733.png appeared (M[0,0 100x100]@S(S(0)[0,0 1680x1050]) S:1.00 C:50,50 [291 msec])
+[debug (10/25/17 2:47:12 PM)] Sikulix: testSetup: repeated Screen.find(imagefile) worked
+[debug (10/25/17 2:47:12 PM)] Sikulix: testSetup: Finder.find: worked
+[debug (10/25/17 2:47:12 PM)] RunSetup: 
+popInfo: --------------------
+You now have the IDE as SikuliX.app
+It is recommended to move SikuliX.app
+to the /Applications folder.
+--------------------
+[debug (10/25/17 2:47:20 PM)] RunSetup: ... SikuliX Setup seems to have ended successfully ;-)
+[debug (10/25/17 2:47:20 PM)] RunTimeSETUP: final cleanup
+[debug (10/25/17 2:47:20 PM)] FileManager: deleteFileOrFolder:
+/var/folders/dq/plgv0dfj5_g0pj46mkb3561w0000gn/T/Sikulix_1089063563
