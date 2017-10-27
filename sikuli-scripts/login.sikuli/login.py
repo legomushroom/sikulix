@@ -27,9 +27,7 @@ click(Pattern("1509038017899.png").targetOffset(476,-4))
 
 wait("1509038079595.png", 5)
 
-#if os.environ['VSRTC_PROVIDER'] == 'MICROSOFT':
-if True:
-
+if os.environ['SIKULI_VSRTC_PROVIDER'] == 'MICROSOFT':
   click(Pattern("1509038087903.png").targetOffset(-108,36))
 
   wait("1509038218664.png", 5)
@@ -44,7 +42,7 @@ type("w", KEY_CMD)
 
 switchApp('VSRTC')
 
-if exists("1509038546095.png", 5) != None or exists("1509051410195.png") != None:
+if exists("1509038546095.png", 5) == None or exists("1509051410195.png") != None:
     
     type("`", KEY_CTRL)
     

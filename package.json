@@ -1,0 +1,38 @@
+{
+  "name": "vsrtc-e2e-testing",
+  "version": "0.1.0",
+  "description": "end-to-end testing agent for vsrtc",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "npm run compile && node dist/app.js",
+    "compile": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/nodemon/bin/nodemon.js -e ts --exec \"npm run start\"",
+    "fetch-secrets": "node fetch-secrets.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/legomushroom/sikulix.git"
+  },
+  "keywords": [
+    "testig",
+    "e2e",
+    "vsrtc"
+  ],
+  "author": "Oleg Solomka <legomushroom@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/legomushroom/sikulix/issues"
+  },
+  "homepage": "https://github.com/legomushroom/sikulix#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.47",
+    "nodemon": "^1.12.1",
+    "typescript": "^2.5.3"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "rimraf": "^2.6.2",
+    "socket.io": "^2.0.4"
+  }
+}
