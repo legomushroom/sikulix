@@ -67,30 +67,32 @@
    </head>
 <body>
 <div class="info">
-<h2>test.sikuli</h2> <a href="test.zip">(Download this script)</a>
+<h2>login.sikuli</h2> <a href="login.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
 <span class="kw">import</span> os
 <span class="kw">import</span> time
 
-openApp(<span class="str">'VSRTC'</span>);
+<span class="kw">from</span> sikuli <span class="kw">import</span> *
 
-<span class="skw">wait</span>(<img src="1509041290428.png" />, <span class="dig">5</span>)
+<span class="kw">import</span> logout
+reload(logout)
 
-<span class="cmt"># Log out</span>
-<span class="kw">if</span> exists(<img src="1509047312623.png" />, <span class="dig">3</span>) != None:
-  <span class="skw">click</span>(<img src="1509047476268.png" />)
-  <span class="skw">wait</span>(Pattern(<img src="1509047757756.png" />).targetOffset(-<span class="dig">243</span>,<span class="dig">52</span>))
+<span class="kw">import</span> constants
+reload(constants)
 
-  <span class="skw">click</span>(Pattern(<img src="1509047757756.png" />).targetOffset(-<span class="dig">243</span>,<span class="dig">52</span>))
+<span class="kw">import</span> reportError
+reload(reportError)
 
-  <span class="skw">wait</span>(Pattern(<img src="1509041325992.png" />).similar(<span class="dig">0.95</span>))
+<span class="kw">import</span> imports
+reload(imports)
 
-<span class="cmt"># Log in</span>
+imports.run()
+logout.run()
 
-openApp(<span class="str">'VSRTC'</span>);
+<span class="skw">wait</span>(<img src="1509389845775.png" />, <span class="dig">5</span>)
 
-<span class="skw">click</span>(Pattern(<img src="1509041325992.png" />).similar(<span class="dig">0.95</span>))
+<span class="skw">click</span>(<img src="1509389845775.png" />, <span class="dig">5</span>)
 
 <span class="skw">wait</span>(<img src="1509038007391.png" />)
 
@@ -99,9 +101,8 @@ openApp(<span class="str">'VSRTC'</span>);
 
 <span class="skw">wait</span>(<img src="1509038079595.png" />, <span class="dig">5</span>)
 
-<span class="cmt">#if os.environ['VSRTC_PROVIDER'] == 'MICROSOFT':</span>
-<span class="kw">if</span> True:
-
+<span class="kw">if</span> <span class="dig">1</span> == <span class="dig">2</span>:
+    <span class="cmt">#if os.environ['SIKULI_VSRTC_PROVIDER'] == 'MICROSOFT':</span>
   <span class="skw">click</span>(Pattern(<img src="1509038087903.png" />).targetOffset(-<span class="dig">108</span>,<span class="dig">36</span>))
 
   <span class="skw">wait</span>(<img src="1509038218664.png" />, <span class="dig">5</span>)
@@ -115,71 +116,12 @@ openApp(<span class="str">'VSRTC'</span>);
 <span class="skw">type</span>(<span class="str">"w"</span>, KEY_CMD)
 
 switchApp(<span class="str">'VSRTC'</span>)
-
-<span class="kw">if</span> exists(<img src="1509038546095.png" />, <span class="dig">5</span>) == None <span class="kw">or</span> exists(<img src="1509051410195.png" />) != None:
-
-    <span class="skw">type</span>(<span class="str">"`"</span>, KEY_CTRL)
-
-    <span class="skw">wait</span>(<img src="1509042668993.png" />)
-    <span class="skw">click</span>(Pattern(<img src="1509042677628.png" />).targetOffset(-<span class="dig">69</span>,<span class="dig">2</span>))
-    <span class="skw">wait</span>(<img src="1509042707742.png" />)
-
-    <span class="kw">if</span> exists(Pattern(<img src="1509048234712.png" />).similar(<span class="dig">0.92</span>)) == None:
-
-      <span class="skw">click</span>(<img src="1509042714685.png" />)
-
-      <span class="skw">type</span>(<span class="str">'Visual Studio RTC'</span>)
-
-      <span class="skw">type</span>(Key.ENTER)
-
-    hover(Env.getMouseLocation().offset(<span class="dig">0</span>, <span class="dig">40</span>))
-    mouseDown(Button.LEFT)
-    mouseUp()
-
-    <span class="skw">type</span>(<span class="str">'a'</span>, KEY_CMD)
-    <span class="skw">type</span>(<span class="str">'c'</span>, KEY_CMD)
-
-    time.<span class="skw">sleep</span>(<span class="dig">2</span>)
-
-    output = Env.getClipboard()
-
-    <span class="cmt"># Devtools output:</span>
-
-    <span class="skw">wait</span>(Pattern(<img src="help_1509047312623.png" />).similar(<span class="dig">0.91</span>), <span class="dig">5</span>)
-
-    <span class="skw">click</span>(Pattern(<img src="help_1509047312623.png" />).similar(<span class="dig">0.91</span>))
-
-    <span class="skw">wait</span>(Pattern(<img src="help-menu.png" />).similar(<span class="dig">0.91</span>), <span class="dig">5</span>)
-
-    <span class="skw">click</span>(Pattern(<img src="help-menu.png" />).similar(<span class="dig">0.91</span>).targetOffset(-<span class="dig">69</span>,<span class="dig">53</span>))
-
-    <span class="skw">wait</span>(<img src="1509052779872.png" />, <span class="dig">5</span>)
-
-    hover(Pattern(<img src="1509052822091.png" />).targetOffset(-<span class="dig">2</span>,<span class="dig">30</span>))
-
-    mouseDown(Button.LEFT)
-    mouseMove(Env.getMouseLocation().offset(<span class="dig">0</span>, <span class="dig">25</span>))
-    mouseUp()
-
-    <span class="skw">type</span>(<span class="str">'a'</span>, KEY_CMD)
-
-    time.<span class="skw">sleep</span>(<span class="dig">2</span>)
-
-    <span class="skw">type</span>(<span class="str">'c'</span>, KEY_CMD)
-
-    time.<span class="skw">sleep</span>(<span class="dig">2</span>)
-
-    devtoolsOutput = Env.getClipboard()
-    <span class="skw">click</span>(Pattern(<img src="1509057168419.png" />).targetOffset(-<span class="dig">23</span>,-<span class="dig">29</span>))
-
-    <span class="kw">print</span>(<span class="str">"&gt;&gt;&gt; SignIn failed"</span>)
-    <span class="kw">print</span>(<span class="str">" &gt;&gt; output: "</span>)
-    <span class="kw">print</span>(output)
-    <span class="kw">print</span>(<span class="str">" &gt;&gt; devtools output: "</span>)
-    <span class="kw">print</span>(devtoolsOutput)
+<span class="kw">if</span> exists(<img src="1509038546095.png" />, <span class="dig">5</span>) != None <span class="kw">or</span> exists(<img src="1509051410195.png" />) != None:
+    reportError.run()
 
 <span class="kw">else</span>:
-    <span class="kw">print</span>(<span class="str">'OK'</span>)
+    <span class="kw">print</span>(constants.OUTPUT_MARKER + <span class="str">' : data : https://ci.dev.project-cascade.visualstudio.com/join?A034FD644EA4CDB3DAAC'</span>)
+    <span class="kw">print</span>(constants.OUTPUT_MARKER + <span class="str">' : status : OK'</span>)
 </pre>
 </body>
 </html>

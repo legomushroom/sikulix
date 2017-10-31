@@ -1,0 +1,141 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>reportError.sikuli</h2> <a href="reportError.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="kw">import</span> os
+<span class="kw">import</span> time
+
+<span class="kw">import</span> imports
+reload(imports)
+imports.addSikuliImagePath(<span class="kw">lambda</span>:<span class="dig">0</span>)
+
+<span class="kw">import</span> constants
+reload(constants)
+
+<span class="kw">def</span> run():
+    openApp(<span class="str">'VSRTC'</span>)
+    <span class="skw">wait</span>(<img src="1509466438747.png" />, <span class="dig">5</span>)
+    <span class="skw">type</span>(<span class="str">'`'</span>, KEY_CTRL)
+
+    <span class="skw">wait</span>(<img src="1509466568621.png" />, <span class="dig">3</span>)
+    <span class="skw">click</span>(<img src="1509466580108.png" />)
+    <span class="kw">if</span> exists(<img src="1509466596583.png" />) == None:
+        <span class="skw">click</span>(<img src="1509466596583.png" />)
+        <span class="skw">type</span>(<span class="str">'Visual Studio RTC'</span>)
+        <span class="skw">type</span>(Key.ENTER)
+
+    hover(Env.getMouseLocation().offset(<span class="dig">0</span>, <span class="dig">40</span>))
+    mouseDown(Button.LEFT)
+    mouseUp()
+
+    <span class="cmt"># copy to clipboard</span>
+    <span class="skw">type</span>(<span class="str">'a'</span>, KEY_CMD)
+    <span class="skw">type</span>(<span class="str">'c'</span>, KEY_CMD)
+
+    time.<span class="skw">sleep</span>(<span class="dig">2</span>)
+
+    output = Env.getClipboard()
+
+    <span class="cmt"># Devtools output:</span>
+
+    <span class="skw">click</span>(Pattern(<img src="1509467061897.png" />).similar(<span class="dig">0.52</span>))
+    <span class="skw">wait</span>(<img src="1509467094931.png" />)
+    <span class="skw">click</span>(<img src="1509467094931.png" />)
+    <span class="skw">wait</span>(<img src="1509468746576.png" />, <span class="dig">5</span>)
+
+    hover(Pattern(<img src="1509468746576.png" />).targetOffset(-<span class="dig">26</span>,<span class="dig">27</span>))
+
+    mouseDown(Button.LEFT)
+    mouseMove(Env.getMouseLocation().offset(<span class="dig">0</span>, <span class="dig">25</span>))
+    mouseUp()
+
+    <span class="skw">type</span>(<span class="str">'a'</span>, KEY_CMD)
+
+    time.<span class="skw">sleep</span>(<span class="dig">2</span>)
+
+    <span class="skw">type</span>(<span class="str">'c'</span>, KEY_CMD)
+
+    time.<span class="skw">sleep</span>(<span class="dig">2</span>)
+
+    devtoolsOutput = Env.getClipboard()
+
+    <span class="skw">click</span>(Pattern(<img src="1509467201304.png" />).targetOffset(-<span class="dig">20</span>,-<span class="dig">15</span>))
+
+    <span class="kw">print</span>(<span class="str">"&gt;&gt;&gt; Error report"</span>)
+    <span class="kw">print</span>(<span class="str">" &gt;&gt; Output: "</span>)
+    <span class="kw">print</span>(output)
+    <span class="kw">print</span>(<span class="str">" &gt;&gt; Devtools log: "</span>)
+    <span class="kw">print</span>(devtoolsOutput)
+
+run()
+</pre>
+</body>
+</html>

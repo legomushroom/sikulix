@@ -44,17 +44,6 @@ const resetEnviromentVariables = (enviromentVariables: IEnviromentVariables) => 
     };
 };
 
-// const writeFile = (path: string, contents: string) => {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile(path, contents, (error) => {
-//             if (error) {
-//                 reject(error);
-//             }
-//             resolve(error);
-//         }); 
-//     });
-// };
-
 const ROOT = '../';
 const DIRNAME = path.resolve(__dirname, ROOT);
 const TEMP_TEST_FOLDER = 'temp';
@@ -65,27 +54,7 @@ const TEMP_FILE = path.join(TEMP_FOLDER, TEMP_TEST_FILE_NAME);
 const SIKULIX_SCRIPTS_FOLDER_NAME = './sikuli-scripts';
 const SIKULIX_SCRIPTS_FOLDER = path.join(DIRNAME, SIKULIX_SCRIPTS_FOLDER_NAME);
 
-// const temporarySaveSikuliScript = async (path: string, sikuliScript: string) => {
-//     try {
-//         await writeFile(TEMP_FOLDER, sikuliScript);
-//     } catch(e) {
-//         console.log(`[agent]: error while writing file`, e);
-//     }
-// };
-
-// const removeTemporaryFolder = (path: string) => {
-//     return new Promise((resolve, reject) => {
-//         rimraf(path, function (e) {
-//             if (e) {
-//                 reject(e);
-//             }
-
-//             resolve();
-//         });
-//     });
-// };
-
-const runSikuliScript = (filepath: string) => {
+const runSikuliScript = (filepath: string): Promise<string> => {
     return new Promise((resolve, reject) => {
         exec(`sikulix -r ${filepath}`, (error, stdout, stderr) => {
             resolve(stdout);
@@ -99,27 +68,60 @@ const test: ITestDefinition = {
     },
     scriptPath: 'login.sikuli',
     name: 'login'
+};
+
+interface ITestResult {
+    log: string;
+    data: string;
+    status: string;
+};
+
+const getValue = (record: string) => {
+    const split = record.split(' : ');
+    // return everything but the first item
+    return [split[1], split[2]];
 }
 
-const runTest = async (test: ITestDefinition) => {
-    setEnviromentVariables(test.enviromentVariables);
-    // await temporarySaveSikuliScript(TEMP_FILE, skikuliScript);
+const getTestAttributes = (output: string): ITestResult => {
+    const scriptLoglineRegexp = /VSRTC SIKULI SCRIPT\s\:\s\w+\s\:\s.+$/gim; 
+    // get all script log lines
+    const match = output.match(scriptLoglineRegexp);
+    // remove all script log lines
+    output = output.replace(scriptLoglineRegexp, '');
 
+    const result = {
+        log: output,
+        status: 'FAIL'
+    } as ITestResult;
+
+    if (!match) {
+        return result;
+    }
+
+    for (let record of match) {
+        const value = getValue(record);
+        result[value[0]] = value[1];
+    }
+
+    return result;
+};
+
+const runTest = async (test: ITestDefinition): Promise<ITestResult> => {
+    setEnviromentVariables(test.enviromentVariables);
     try {
         const output = await runSikuliScript(path.join(SIKULIX_SCRIPTS_FOLDER, test.scriptPath));
-        console.log(output);
+        return getTestAttributes(output);
+
     } catch (e) {
         console.log(`[agent]: sikuli script fail`, e);
     }
-    
-    
-    // await removeTemporaryFolder(TEMP_FOLDER);
     resetEnviromentVariables(test.enviromentVariables);
 };
 
-setTimeout(() => {
-    runTest(test);
-}, 2000);
+setTimeout(async () => {
+    const result = await runTest(test);
+    console.log(JSON.stringify(result, null, 2));
+}, 1000);
 
 io.on('connection', function (socket) {
     console.log('orchestrator is connected');
