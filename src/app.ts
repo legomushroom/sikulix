@@ -62,14 +62,6 @@ const runSikuliScript = (filepath: string): Promise<string> => {
     });
 };
 
-const test: ITestDefinition = {
-    enviromentVariables: {
-        SIKULI_VSRTC_PROVIDER: 'MICROSOFT'
-    },
-    scriptPath: 'login.sikuli',
-    name: 'login'
-};
-
 interface ITestResult {
     log: string;
     data: string;
@@ -118,11 +110,6 @@ const runTest = async (test: ITestDefinition): Promise<ITestResult> => {
     resetEnviromentVariables(test.enviromentVariables);
 };
 
-setTimeout(async () => {
-    const result = await runTest(test);
-    console.log(JSON.stringify(result, null, 2));
-}, 1000);
-
 io.on('connection', function (socket) {
     console.log('orchestrator is connected');
 
@@ -132,3 +119,27 @@ io.on('connection', function (socket) {
 });
 
 export default app;
+
+const test1: ITestDefinition = {
+    enviromentVariables: {
+        SIKULI_VSRTC_PROVIDER: 'MICROSOFT'
+    },
+    scriptPath: 'login-test.sikuli',
+    name: 'Login with MS'
+};
+
+const test2: ITestDefinition = {
+    enviromentVariables: {
+        SIKULI_VSRTC_PROVIDER: 'GITHUB'
+    },
+    scriptPath: 'login-test.sikuli',
+    name: 'Login with GitHub'
+};
+
+setTimeout(async () => {
+    // const result1 = await runTest(test1);
+    // console.log(`${test1.name} -- ${result1.status}\n\n`, result1.log);
+    
+    const result2 = await runTest(test2);
+    console.log(`${test2.name} -- ${result2.status}\n\n`, result2.log);
+}, 1000);

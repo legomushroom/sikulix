@@ -1,3 +1,4 @@
+from sikuli import *
 import imports
 reload(imports)
 imports.addSikuliImagePath(lambda:0)

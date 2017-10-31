@@ -1,3 +1,5 @@
+from sikuli import *
+
 import os
 import time
 
@@ -62,5 +64,3 @@ def run():
     print(output)
     print(" >> Devtools log: ")
     print(devtoolsOutput)
-
-run()
