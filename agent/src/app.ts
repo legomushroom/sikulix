@@ -6,6 +6,8 @@ import * as path from 'path';
 import { exec } from 'child_process';
 import rimraf from 'rimraf';
 
+import * as socketClient from 'socket.io-client';
+
 const app = express();
 
 const PORT = 5000;
@@ -20,7 +22,8 @@ const server = app
     );
   });
 
-const io = sockets(server);
+const serverUrl = 'http://localhost:3000';
+const socket = socketClient.connect(serverUrl);
 
 interface IEnviromentVariables {
     [key: string]: string;
@@ -110,36 +113,40 @@ const runTest = async (test: ITestDefinition): Promise<ITestResult> => {
     resetEnviromentVariables(test.enviromentVariables);
 };
 
-io.on('connection', function (socket) {
-    console.log('orchestrator is connected');
-
-    socket.on('run test', (testDefinition: ITestDefinition) => {
-
-    })
+socket.on('connect', () => {
+    console.log('agent is connected to orchestrator');
 });
+
+// io.on('connection', function (socket) {
+//     console.log('orchestrator is connected');
+
+//     socket.on('run test', (testDefinition: ITestDefinition) => {
+
+//     })
+// });
 
 export default app;
 
-const test1: ITestDefinition = {
-    enviromentVariables: {
-        SIKULI_VSRTC_PROVIDER: 'MICROSOFT'
-    },
-    scriptPath: 'login-test.sikuli',
-    name: 'Login with MS'
-};
+// const test1: ITestDefinition = {
+//     enviromentVariables: {
+//         SIKULI_VSRTC_PROVIDER: 'MICROSOFT'
+//     },
+//     scriptPath: 'login-test.sikuli',
+//     name: 'Login with MS'
+// };
 
-const test2: ITestDefinition = {
-    enviromentVariables: {
-        SIKULI_VSRTC_PROVIDER: 'GITHUB'
-    },
-    scriptPath: 'login-test.sikuli',
-    name: 'Login with GitHub'
-};
+// const test2: ITestDefinition = {
+//     enviromentVariables: {
+//         SIKULI_VSRTC_PROVIDER: 'GITHUB'
+//     },
+//     scriptPath: 'login-test.sikuli',
+//     name: 'Login with GitHub'
+// };
 
-setTimeout(async () => {
-    // const result1 = await runTest(test1);
-    // console.log(`${test1.name} -- ${result1.status}\n\n`, result1.log);
+// setTimeout(async () => {
+//     // const result1 = await runTest(test1);
+//     // console.log(`${test1.name} -- ${result1.status}\n\n`, result1.log);
     
-    const result2 = await runTest(test2);
-    console.log(`${test2.name} -- ${result2.status}\n\n`, result2.log);
-}, 1000);
+//     const result2 = await runTest(test2);
+//     console.log(`${test2.name} -- ${result2.status}\n\n`, result2.log);
+// }, 1000);

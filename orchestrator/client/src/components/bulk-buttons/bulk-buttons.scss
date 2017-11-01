@@ -1,0 +1,55 @@
+$gridSize: 10px;
+
+.bulkButtons {
+  margin: 0 auto;
+  width: 100%;
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  background: rgba(34,34,34, .85);
+  text-align: center;
+  padding: $gridSize 0;
+  overflow: hidden;
+  border-bottom: 1px solid #333;
+  margin-bottom: 2*$gridSize;
+}
+
+.checkbox {
+  float: left;
+  width: 3*$gridSize;
+  height: 3*$gridSize;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: $gridSize;
+
+  input {
+    cursor: pointer;
+    display: block;
+    position: relative;
+
+    $size: 5*$gridSize;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $size;
+      height: $size;
+      margin-left: -($size/2);
+      margin-top: -($size/2);
+    }
+  }
+}
+
+.buttons {
+  float: right;
+}
+
+.bulkButton {
+  margin-top: 0;
+  & + .bulkButton {
+    margin-left: $gridSize;
+  }
+}

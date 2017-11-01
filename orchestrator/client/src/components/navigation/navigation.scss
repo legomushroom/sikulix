@@ -1,0 +1,50 @@
+$gridSize: 10px;
+
+.navigation {
+  margin: 4*$gridSize auto;
+  margin-bottom: 5*$gridSize;
+  display: inline-block;
+  // width: 32*$gridSize;
+}
+
+.link {
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  font-size: 14px;
+  padding: .5*$gridSize 0;
+  opacity: .75;
+  cursor: pointer;
+
+  & + .link {
+    margin-left: 3*$gridSize;
+  }
+
+  &:hover {
+    opacity: 1;
+    border-bottom-color: currentColor;
+  }
+
+  &:focus {
+    outline: 2px solid #777;
+    outline-offset: 3px;
+  }
+}
+
+.activeLink {
+  opacity: 1;
+  border-bottom-color: currentColor;
+  cursor: default;
+
+  .countTitle {
+    display: inline;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.countTitle {
+  display: none;
+}
