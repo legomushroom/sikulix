@@ -126,27 +126,3 @@ socket.on('connect', () => {
 // });
 
 export default app;
-
-// const test1: ITestDefinition = {
-//     enviromentVariables: {
-//         SIKULI_VSRTC_PROVIDER: 'MICROSOFT'
-//     },
-//     scriptPath: 'login-test.sikuli',
-//     name: 'Login with MS'
-// };
-
-// const test2: ITestDefinition = {
-//     enviromentVariables: {
-//         SIKULI_VSRTC_PROVIDER: 'GITHUB'
-//     },
-//     scriptPath: 'login-test.sikuli',
-//     name: 'Login with GitHub'
-// };
-
-// setTimeout(async () => {
-//     // const result1 = await runTest(test1);
-//     // console.log(`${test1.name} -- ${result1.status}\n\n`, result1.log);
-    
-//     const result2 = await runTest(test2);
-//     console.log(`${test2.name} -- ${result2.status}\n\n`, result2.log);
-// }, 1000);

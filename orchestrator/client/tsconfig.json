@@ -17,6 +17,7 @@
             "decorators/*": ["src/decorators/*"],
             "reducers/*": ["src/reducers/*"],
             "utils/*": ["src/utils/*"],
+            "tests/*": ["src/tests/*"],
             "css/*": ["src/css/*"]
         }
     },

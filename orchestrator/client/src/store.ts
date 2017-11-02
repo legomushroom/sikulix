@@ -1,13 +1,15 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+
 import Socket from './socket';
-
-import { serverStatusReducer } from 'components/server-status/server-status-reducer';
-
-const middleware = applyMiddleware(thunk);
+import { scenarios } from './tests/tests';
+import { testScenariosReducer } from 'reducers/test-scenarios/test-scenarios-reducer';
+import { setTestScenarios } from 'reducers/test-scenarios/test-scenarios-actions';
 
 export const store = createStore(combineReducers({
-  serverStatus: serverStatusReducer
-}), middleware);
+  testScenarios: testScenariosReducer
+}), applyMiddleware(thunk));
 
 const socket = new Socket(store);
+
+store.dispatch(setTestScenarios(scenarios));
