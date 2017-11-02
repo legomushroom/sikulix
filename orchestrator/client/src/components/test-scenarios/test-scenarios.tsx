@@ -5,6 +5,7 @@ import { connect } from 'preact-redux';
 import { ITestScenarios } from 'tests/interfaces';
 
 import { getTestScenarios } from 'reducers/test-scenarios/test-scenarios-selectors';
+import { TestScenario } from 'components/test-scenario/test-scenario';
 
 import styles from './test-scenarios.scss';
 
@@ -17,17 +18,15 @@ export class TestScenariosComponent extends Component<ITestScenariosProps, {}> {
   private renderScenarios(testScenarios: ITestScenarios = {}) {
 
     const ids = Object.keys(testScenarios);
-    console.log(ids);
-
     return ids.map((id, i) => {
-      return (<div>{id}</div>);
+      return (<TestScenario id={id} { ...testScenarios[id] } />);
     });
 
   }
 
   render () {
     return (
-      <div>
+      <div class='testScenarios'>
         { this.renderScenarios(this.props.testScenarios) }
       </div>
     );

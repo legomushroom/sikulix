@@ -4,10 +4,10 @@ import { style } from 'decorators/style';
 import styles from './button.scss';
 
 interface IButtonProps {
-  text: string;
+  text?: string;
   className?: string;
   isDisabled?: boolean;
-  onClick: (e) => void;
+  onClick?: (e) => void;
 };
 
 @style(styles)
@@ -18,9 +18,9 @@ export class Button extends Component<IButtonProps, {}> {
     const onClickCallback = isDisabled ? undefined : onClick;
     
     return (
-      <div className={`button ${className} ${isDisabledClass}`} onClick={onClickCallback}>
+      <button className={`button ${className} ${isDisabledClass}`} onClick={onClickCallback}>
         <span className='text'>{text}</span>
-      </div>
+      </button>
     );
   }
 };

@@ -41,8 +41,35 @@ const server = app
 
 const io = sockets(server);
 
-io.on('connection', function(socket){
-  console.log('SERVER CONNECTED');
+const frontendIO = io.of('/frontend');
+frontendIO.on('connection', (socket) => {
+  const agentsIO = io.of('/agents');
+  console.log('FE connected to SERVER');
+  console.log(Object.keys(frontendIO.clients().sockets).length);
+
+  agentsIO.on('connection', (socket) => {
+    console.log('AGENT connected to SERVER');
+    // console.log(socket.id);
+  
+    // console.log(agentsIO.clients().sockets[socket.id]);
+    // console.log(io.sockets.clients('agents'));
+  
+    frontendIO.emit('agent connection', socket.id);
+    console.log(Object.keys(agentsIO.clients().sockets).length);
+  });
+
+  // console.log(socket.id);
+
+  // console.log(agentsIO.clients().sockets[socket.id]);
+  // console.log(io.sockets.clients('agents'));
 });
+
+// io.on('connection', function(socket) {
+
+//   // console.log(io.socket);
+
+//   // socket.emit('agent connection', socket);
+//   console.log('SERVER CONNECTED');
+// });
 
 export default app;

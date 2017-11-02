@@ -1,15 +1,15 @@
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
-import Socket from './socket';
 import { scenarios } from './tests/tests';
 import { testScenariosReducer } from 'reducers/test-scenarios/test-scenarios-reducer';
 import { setTestScenarios } from 'reducers/test-scenarios/test-scenarios-actions';
 
-export const store = createStore(combineReducers({
-  testScenarios: testScenariosReducer
-}), applyMiddleware(thunk));
+import { agentsReducer } from 'reducers/agents/agents-reducer';
 
-const socket = new Socket(store);
+export const store = createStore(combineReducers({
+  testScenarios: testScenariosReducer,
+  agents: agentsReducer
+}), applyMiddleware(thunk));
 
 store.dispatch(setTestScenarios(scenarios));

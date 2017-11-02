@@ -8,22 +8,22 @@ import rimraf from 'rimraf';
 
 import * as socketClient from 'socket.io-client';
 
-const app = express();
+// const app = express();
 
-const PORT = 5000;
-const server = app
-  .listen(PORT, () => {
-    console.log(
-      `
-      -=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-
-      | Server is up at http://localhost:${PORT} |
-      -=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-
-      `
-    );
-  });
+// const PORT = 5000;
+// const server = app
+//   .listen(PORT, () => {
+//     console.log(
+//       `
+//       -=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-
+//       | Server is up at http://localhost:${PORT} |
+//       -=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-
+//       `
+//     );
+//   });
 
 const serverUrl = 'http://localhost:3000';
-const socket = socketClient.connect(serverUrl);
+const socket = socketClient.connect(`${serverUrl}/agents`);
 
 interface IEnviromentVariables {
     [key: string]: string;
@@ -125,4 +125,6 @@ socket.on('connect', () => {
 //     })
 // });
 
-export default app;
+// export default app;
+
+console.log('agent is running');

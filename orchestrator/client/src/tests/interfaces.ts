@@ -12,6 +12,7 @@ export interface ITestDefinition {
 export interface ITestScenario {
     test: ITestDefinition[];
     progress: number;
+    name: string;
 };
 
 export interface ITestScenarios {

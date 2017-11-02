@@ -3,22 +3,20 @@ import { ITestDefinition, ITestScenario, ITestScenarios } from './interfaces';
 const scenarios: ITestScenarios = {};
 
 let cnt = 0;
-const addTest = (test: ITestDefinition[]) => {
+const addTest = (name: string, test: ITestDefinition[]) => {
     const scenario: ITestScenario = {
         test,
-        progress: 0
+        progress: 0,
+        name
     };
 
-    scenarios[`${cnt++}`] = {
-        test,
-        progress: 0
-    }
+    scenarios[`${cnt++}`] = scenario;
 };
 
 /**
  * Login flow with MS test.
  */
-addTest([
+addTest('Login with MS scenario', [
     {
         enviromentVariables: {
             SIKULI_VSRTC_PROVIDER: 'MICROSOFT'
@@ -31,7 +29,7 @@ addTest([
 /**
  * Login flow with GitHub test.
  */
-addTest([
+addTest('Login with GitHub scenario', [
     {
         enviromentVariables: {
             SIKULI_VSRTC_PROVIDER: 'GITHUB'

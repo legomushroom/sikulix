@@ -1,0 +1,16 @@
+$gridSize: 10px;
+
+$height: 4*$gridSize;
+.test {
+  flex-grow: 1;
+  height: $height;
+  line-height: $height;
+  font-size: 12px;
+  background-color: #111;
+  padding: 0 2*$gridSize;
+
+  // cursor: pointer;
+  // &:hover {
+  //   opacity: .75;
+  // }
+}

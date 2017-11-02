@@ -1,0 +1,31 @@
+$gridSize: 10px;
+
+.testScenario {
+  // width: 100%;
+}
+
+.header {
+  font-size: 20px;
+  letter-spacing: .25px;
+  margin: 2*$gridSize 0;
+  position: relative;
+}
+
+.completed {
+  font-size: 11px;
+  opacity: .75;
+  position: relative;
+  top: -.25*$gridSize;
+  left: .5*$gridSize;
+}
+
+.tests {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.runButton {
+  float: right;
+  margin-top: -.5*$gridSize;
+}

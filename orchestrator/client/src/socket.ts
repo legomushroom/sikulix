@@ -1,6 +1,7 @@
 import io from 'socket.io-client';
+import { store } from './store';
 
-import { capitalizeText } from 'utils/capitalize-text';
+import { addAgent } from 'reducers/agents/agents-actions';
 
 class Socket {
   private socket;
@@ -11,31 +12,28 @@ class Socket {
     const { location } = window;
     const { hostname, port, protocol } = location;
 
-    this.socket = io.connect(`${protocol}//${hostname}:${port}`);
+    this.socket = io.connect(`${protocol}//${hostname}:${port}/frontend`);
 
     this.connect();
   }
 
   private connect() {
+    console.log('conenct function');
     this.socket.on('connect', () => {
       console.log('orchestrator client connected');
-      // this.store.dispatch(setServerStatus(IServerState.Connected));
 
-      // this.socket.on('send users', (users: IUsersList, statusString: string) => {
-      //   const status = IUserStatus[capitalizeText(statusString)] as any;
-        
-      //   this.store.dispatch(setUsers({ users, status }));
-      // });
+      this.socket.on('agent connection', (id) => {
+        console.log('agent connection', id);
+        this.store.dispatch(addAgent(id));
+      });
 
-      // this.socket.on('reset user status', (user) => {
-      //   this.store.dispatch(resetUserStatus(user));
-      // });
     });
     
     this.socket.on('disconnect', () => {
+      this.socket.off('agent connection');
       // this.store.dispatch(setServerStatus(IServerState.Disconnected));
     });
   }
-}
+};
 
-export default Socket;
+export default () => { new Socket(store) };
